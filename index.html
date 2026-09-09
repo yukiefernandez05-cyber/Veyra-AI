@@ -1240,3 +1240,100 @@ URL.revokeObjectURL(url);
 
 </body>
     </html>
+/* MENU ACTIONS */
+
+function newProject() {
+
+    closeMenu();
+
+    document.getElementById("builder").style.display = "none";
+    document.getElementById("home").style.display = "flex";
+
+    document.getElementById("prompt").value = "";
+
+}
+
+
+function myProjects() {
+
+    const saved =
+        localStorage.getItem("veyraProject");
+
+    if (saved) {
+
+        alert("You have a saved Veyra project!");
+
+    } else {
+
+        alert("No saved projects yet.");
+
+    }
+
+    closeMenu();
+
+}
+
+
+function showTemplates() {
+
+    alert(
+        "Templates coming soon!\n\n" +
+        "• Gaming\n" +
+        "• Business\n" +
+        "• Portfolio\n" +
+        "• Store\n" +
+        "• Blog"
+    );
+
+    closeMenu();
+
+}
+
+
+function showComponents() {
+
+    alert(
+        "Components coming soon!\n\n" +
+        "• Navbar\n" +
+        "• Hero\n" +
+        "• Cards\n" +
+        "• Buttons\n" +
+        "• Pricing"
+    );
+
+    closeMenu();
+
+}
+
+
+function showPricing() {
+
+    alert(
+        "Veyra AI Pricing\n\n" +
+        "FREE — $0\n" +
+        "PRO — $30/month\n" +
+        "PRO+ — $60/year\n" +
+        "OWNER — Unlimited"
+    );
+
+    closeMenu();
+
+}
+
+
+function showAccount() {
+
+    alert("Account system coming soon.");
+
+    closeMenu();
+
+}
+
+
+function showSettings() {
+
+    alert("Settings coming soon.");
+
+    closeMenu();
+
+}
