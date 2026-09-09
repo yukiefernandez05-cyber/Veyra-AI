@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Veyra AI</title>
 
 <style>
@@ -11,150 +10,123 @@
     box-sizing: border-box;
 }
 
-html,
 body {
     margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #ffffff;
-    color: #111111;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #111;
 }
 
 button,
+input,
 textarea {
     font-family: inherit;
 }
 
-/* =========================
-   TOP BAR
-========================= */
+/* TOP */
 
 .topbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 62px;
+    height: 60px;
+    background: white;
+    border-bottom: 1px solid #ddd;
     display: flex;
     align-items: center;
-    padding: 0 18px;
-    background: #ffffff;
-    border-bottom: 1px solid #eeeeee;
-    z-index: 100;
+    padding: 0 16px;
+    z-index: 1000;
 }
 
 .menu-button {
-    width: 42px;
-    height: 42px;
     border: 0;
     background: transparent;
-    border-radius: 10px;
-    font-size: 25px;
-    cursor: pointer;
-}
-
-.menu-button:hover {
-    background: #f2f2f2;
+    font-size: 24px;
 }
 
 .logo {
-    margin-left: 10px;
+    margin-left: 12px;
+    font-weight: bold;
     font-size: 20px;
-    font-weight: 700;
 }
 
-/* =========================
-   HOME
-========================= */
+/* HOME */
 
 .home {
     min-height: 100vh;
-    padding: 62px 20px 30px;
+    padding: 60px 20px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 .home-content {
     width: 100%;
-    max-width: 760px;
+    max-width: 750px;
     text-align: center;
 }
 
 .home-title {
-    margin: 0;
-    font-size: 44px;
-    line-height: 1.1;
+    font-size: 43px;
+    margin-bottom: 12px;
 }
 
 .home-description {
-    margin: 16px 0 28px;
-    color: #6b6b6b;
-    font-size: 17px;
+    color: #666;
+    margin-bottom: 25px;
 }
 
-.prompt-box {
+.prompt {
     width: 100%;
-    min-height: 170px;
-    padding: 20px;
-    border: 1px solid #dddddd;
-    border-radius: 17px;
-    background: #ffffff;
-    color: #111111;
-    font-size: 16px;
+    min-height: 160px;
+    padding: 18px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
     resize: vertical;
     outline: none;
-}
-
-.prompt-box:focus {
-    border-color: #999999;
-    box-shadow: 0 0 0 3px #f1f1f1;
+    font-size: 16px;
 }
 
 .actions {
-    margin-top: 13px;
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+    margin-top: 12px;
 }
 
-.example-button,
-.create-button {
+.example,
+.create {
     padding: 11px 18px;
-    border-radius: 10px;
-    font-size: 15px;
+    border-radius: 9px;
     cursor: pointer;
 }
 
-.example-button {
-    background: #ffffff;
-    border: 1px solid #dddddd;
+.example {
+    background: white;
+    border: 1px solid #ddd;
 }
 
-.create-button {
-    background: #111111;
-    color: #ffffff;
-    border: 1px solid #111111;
-    font-weight: 700;
+.create {
+    background: #111;
+    color: white;
+    border: 0;
+    font-weight: bold;
 }
 
-/* =========================
-   SIDE MENU
-========================= */
+/* MENU */
 
 .side-menu {
     position: fixed;
+    left: -290px;
     top: 0;
-    left: -300px;
-    width: 300px;
+    width: 290px;
     height: 100vh;
-    padding: 22px;
-    background: #ffffff;
-    box-shadow: 5px 0 25px rgba(0,0,0,0.15);
-    z-index: 1000;
-    transition: left 0.25s ease;
+    background: white;
+    padding: 20px;
+    z-index: 2000;
+    box-shadow: 5px 0 25px #0002;
+    transition: .25s;
 }
 
 .side-menu.open {
@@ -163,132 +135,1106 @@ textarea {
 
 .close-menu {
     float: right;
-    width: 38px;
-    height: 38px;
     border: 0;
     background: transparent;
     font-size: 25px;
-    cursor: pointer;
 }
 
-.side-menu-title {
-    margin: 5px 0 25px;
+.menu-title {
     font-size: 21px;
-    font-weight: 700;
+    font-weight: bold;
+    margin-bottom: 25px;
 }
 
 .menu-item {
-    padding: 14px 10px;
-    margin-bottom: 4px;
+    padding: 14px;
     border-radius: 9px;
-    cursor: pointer;
 }
 
 .menu-item:hover {
-    background: #f3f3f3;
+    background: #f2f2f2;
 }
 
-/* =========================
-   BUILDER
-========================= */
+/* BUILDER */
 
 .builder {
     display: none;
-    width: 100%;
+    padding-top: 60px;
     height: 100vh;
-    padding-top: 62px;
 }
 
 .builder-toolbar {
-    position: fixed;
-    top: 62px;
-    left: 0;
-    right: 0;
     height: 55px;
+    background: white;
+    border-bottom: 1px solid #ddd;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 0 14px;
-    background: #ffffff;
-    border-bottom: 1px solid #dddddd;
-    z-index: 50;
+    gap: 7px;
+    padding: 0 10px;
 }
 
-.builder-name {
+.project-name {
+    font-weight: bold;
     flex: 1;
-    font-weight: 700;
 }
 
-.builder-button {
-    padding: 8px 13px;
-    border: 1px solid #dddddd;
+.tool-button {
+    border: 1px solid #ddd;
+    background: white;
+    padding: 8px 11px;
+    border-radius: 7px;
+}
+
+.tool-button.active {
+    background: #111;
+    color: white;
+}
+
+/* WORKSPACE */
+
+.workspace {
+    height: calc(100vh - 115px);
+    display: flex;
+}
+
+/* LEFT */
+
+.left-panel {
+    width: 55px;
+    background: white;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    gap: 8px;
+}
+
+.tool {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    background: white;
     border-radius: 8px;
-    background: #ffffff;
-    cursor: pointer;
+    font-size: 18px;
 }
 
-.builder-button:hover {
-    background: #f3f3f3;
+.tool:hover {
+    background: #eee;
 }
 
-.preview-area {
-    width: 100%;
-    height: calc(100vh - 117px);
-    margin-top: 55px;
-    padding: 18px;
+/* CENTER */
+
+.canvas {
+    flex: 1;
+    background: #e8e8e8;
     display: flex;
     justify-content: center;
-    background: #eeeeee;
-}
-
-.website-preview {
-    width: 100%;
-    max-width: 1100px;
-    height: 100%;
+    padding: 20px;
     overflow: auto;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.12);
 }
 
-/* =========================
-   GENERATED WEBSITE
-========================= */
+.website {
+    width: 100%;
+    max-width: 900px;
+    min-height: 100%;
+    background: white;
+    box-shadow: 0 4px 20px #0002;
+}
+
+/* RIGHT */
+
+.properties {
+    width: 260px;
+    background: white;
+    border-left: 1px solid #ddd;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.properties h3 {
+    margin-top: 0;
+}
+
+.property {
+    margin-bottom: 15px;
+}
+
+.property label {
+    display: block;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.property input {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+}
+
+/* WEBSITE */
 
 .site-nav {
     height: 65px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 30px;
-    border-bottom: 1px solid #eeeeee;
+    padding: 0 25px;
+    border-bottom: 1px solid #eee;
 }
 
 .site-logo {
+    font-weight: bold;
     font-size: 20px;
-    font-weight: 700;
 }
 
-.site-nav-button {
+.site-nav button {
+    border: 0;
     padding: 9px 15px;
+    border-radius: 8px;
+    background: #111;
+    color: white;
+}
+
+.hero {
+    padding: 80px 25px;
+    text-align: center;
+    background: linear-gradient(135deg,#111,#444);
+    color: white;
+}
+
+.hero h1 {
+    font-size: 44px;
+    margin: 0 0 15px;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.hero button {
+    margin-top: 25px;
+    padding: 13px 22px;
     border: 0;
     border-radius: 8px;
-    background: #111111;
-    color: #ffffff;
 }
 
-.site-hero {
-    padding: 90px 25px;
+.features {
+    padding: 40px 25px;
+}
+
+.features-title {
     text-align: center;
-    background: linear-gradient(135deg, #111111, #444444);
-    color: #ffffff;
 }
 
-.site-hero h1 {
-    margin: 0 0 15px;
-    font-size: 46px;
+.cards {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
 }
 
-.site-hero p {
-    max-width: 650px;
-    margin
+.card {
+    flex: 1;
+    padding: 22px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+}
+
+.card p {
+    color: #666;
+}
+
+.footer {
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    color: #777;
+}
+
+/* AI BAR */
+
+.ai-bar {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(600px,90%);
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+    box-shadow: 0 5px 25px #0002;
+}
+
+.ai-input {
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 10px;
+}
+
+.ai-button {
+    border: 0;
+    background: #111;
+    color: white;
+    border-radius: 9px;
+    padding: 10px 15px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px) {
+
+    .properties {
+        width: 210px;
+    }
+
+    .home-title {
+        font-size: 32px;
+    }
+
+}
+
+@media(max-width:600px) {
+
+    .properties {
+        display: none;
+    }
+
+    .left-panel {
+        width: 48px;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .builder-toolbar {
+        overflow-x: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP -->
+
+<header class="topbar">
+
+<button
+class="menu-button"
+onclick="openMenu()">☰</button>
+
+<div class="logo">
+✦ Veyra
+</div>
+
+</header>
+
+
+<!-- MENU -->
+
+<aside
+id="sideMenu"
+class="side-menu">
+
+<button
+class="close-menu"
+onclick="closeMenu()">×</button>
+
+<div class="menu-title">
+✦ Veyra
+</div>
+
+<div class="menu-item">New Project</div>
+<div class="menu-item">My Projects</div>
+<div class="menu-item">Templates</div>
+<div class="menu-item">Components</div>
+<div class="menu-item">Pricing</div>
+<div class="menu-item">Account</div>
+<div class="menu-item">Settings</div>
+
+</aside>
+
+
+<!-- HOME -->
+
+<main
+id="home"
+class="home">
+
+<div class="home-content">
+
+<h1 class="home-title">
+What do you want to build?
+</h1>
+
+<p class="home-description">
+Describe your website and Veyra AI will create it.
+</p>
+
+<textarea
+id="prompt"
+class="prompt"
+placeholder="Describe your website..."></textarea>
+
+<div class="actions">
+
+<button
+class="example"
+onclick="examplePrompt()">
+Example
+</button>
+
+<button
+class="create"
+onclick="createWebsite()">
+Create
+</button>
+
+</div>
+
+</div>
+
+</main>
+
+
+<!-- BUILDER -->
+
+<section
+id="builder"
+class="builder">
+
+<!-- TOOLBAR -->
+
+<div class="builder-toolbar">
+
+<div class="project-name">
+✦ Veyra Builder
+</div>
+
+<button
+class="tool-button"
+onclick="undo()">
+↶
+</button>
+
+<button
+class="tool-button"
+onclick="redo()">
+↷
+</button>
+
+<button
+class="tool-button"
+onclick="setDevice('desktop')">
+🖥
+</button>
+
+<button
+class="tool-button"
+onclick="setDevice('tablet')">
+▣
+</button>
+
+<button
+class="tool-button"
+onclick="setDevice('mobile')">
+📱
+</button>
+
+<button
+class="tool-button"
+onclick="saveProject()">
+Save
+</button>
+
+<button
+class="tool-button"
+onclick="backHome()">
+Back
+</button>
+
+</div>
+
+
+<!-- WORKSPACE -->
+
+<div class="workspace">
+
+<!-- LEFT TOOLS -->
+
+<div class="left-panel">
+
+<button
+class="tool"
+onclick="selectElement('heroTitle')">
+T
+</button>
+
+<button
+class="tool"
+onclick="selectElement('heroText')">
+A
+</button>
+
+<button
+class="tool"
+onclick="selectElement('heroButton')">
+▣
+</button>
+
+<button
+class="tool"
+onclick="addCard()">
++
+</button>
+
+</div>
+
+
+<!-- CANVAS -->
+
+<div class="canvas">
+
+<div
+id="website"
+class="website">
+
+<nav class="site-nav">
+
+<div class="site-logo">
+Veyra Site
+</div>
+
+<button>
+Contact
+</button>
+
+</nav>
+
+
+<section class="hero">
+
+<h1 id="heroTitle">
+Welcome
+</h1>
+
+<p id="heroText">
+Your website starts here.
+</p>
+
+<button id="heroButton">
+Get Started
+</button>
+
+</section>
+
+
+<section class="features">
+
+<h2 class="features-title">
+Features
+</h2>
+
+<div
+id="cards"
+class="cards">
+
+<div class="card">
+
+<h3>
+Feature One
+</h3>
+
+<p>
+Everything you need in one beautiful website.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+Feature Two
+</h3>
+
+<p>
+Fast and responsive across devices.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+Feature Three
+</h3>
+
+<p>
+Created with Veyra AI.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer class="footer">
+Created with ✦ Veyra AI
+</footer>
+
+</div>
+
+</div>
+
+
+<!-- PROPERTIES -->
+
+<aside class="properties">
+
+<h3>
+Properties
+</h3>
+
+<div class="property">
+
+<label>
+Text
+</label>
+
+<input
+id="textProperty"
+type="text"
+placeholder="Select an element">
+
+</div>
+
+<div class="property">
+
+<label>
+Background
+</label>
+
+<input
+id="backgroundProperty"
+type="color"
+value="#111111">
+
+</div>
+
+<button
+class="tool-button"
+onclick="applyProperties()">
+Apply
+</button>
+
+</aside>
+
+</div>
+
+
+<!-- AI BAR -->
+
+<div class="ai-bar">
+
+<input
+id="aiInput"
+class="ai-input"
+placeholder="Ask Veyra to edit your website...">
+
+<button
+class="ai-button"
+onclick="aiEdit()">
+✨ Edit
+</button>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* MENU */
+
+function openMenu() {
+
+document
+.getElementById("sideMenu")
+.classList
+.add("open");
+
+}
+
+function closeMenu() {
+
+document
+.getElementById("sideMenu")
+.classList
+.remove("open");
+
+}
+
+
+/* EXAMPLE */
+
+function examplePrompt() {
+
+document
+.getElementById("prompt")
+.value =
+"Create a modern gaming website for my Roblox game with a hero section, game information, features, and a Play Now button.";
+
+}
+
+
+/* CREATE */
+
+function createWebsite() {
+
+const prompt =
+document
+.getElementById("prompt")
+.value
+.trim();
+
+if (!prompt) {
+
+alert("Describe your website first.");
+
+return;
+
+}
+
+document
+.getElementById("home")
+.style
+.display = "none";
+
+document
+.getElementById("builder")
+.style
+.display = "block";
+
+generateWebsite(prompt);
+
+}
+
+
+/* GENERATE */
+
+function generateWebsite(prompt) {
+
+const text =
+prompt.toLowerCase();
+
+const title =
+document.getElementById("heroTitle");
+
+const description =
+document.getElementById("heroText");
+
+
+if (
+text.includes("roblox") ||
+text.includes("gaming") ||
+text.includes("game")
+) {
+
+title.textContent =
+"Welcome to Our Game";
+
+description.textContent =
+"Enter a new world and experience an amazing adventure.";
+
+}
+
+else if (
+text.includes("business")
+) {
+
+title.textContent =
+"Grow Your Business";
+
+description.textContent =
+"Professional solutions for your business.";
+
+}
+
+else if (
+text.includes("portfolio")
+) {
+
+title.textContent =
+"My Creative Portfolio";
+
+description.textContent =
+"Explore my work and projects.";
+
+}
+
+else if (
+text.includes("store") ||
+text.includes("shop")
+) {
+
+title.textContent =
+"Welcome to Our Store";
+
+description.textContent =
+"Discover our latest products.";
+
+}
+
+else {
+
+title.textContent =
+"Your New Website";
+
+description.textContent =
+"A beautiful website created with Veyra AI.";
+
+}
+
+}
+
+
+/* SELECT ELEMENT */
+
+let selectedElement = null;
+
+function selectElement(id) {
+
+selectedElement =
+document.getElementById(id);
+
+if (!selectedElement) return;
+
+document
+.getElementById("textProperty")
+.value =
+selectedElement.textContent;
+
+}
+
+
+/* APPLY PROPERTIES */
+
+function applyProperties() {
+
+if (!selectedElement) {
+
+alert("Select an element first.");
+
+return;
+
+}
+
+const text =
+document
+.getElementById("textProperty")
+.value;
+
+const background =
+document
+.getElementById("backgroundProperty")
+.value;
+
+if (text) {
+
+selectedElement.textContent =
+text;
+
+}
+
+selectedElement.style.background =
+background;
+
+}
+
+
+/* ADD CARD */
+
+function addCard() {
+
+const cards =
+document.getElementById("cards");
+
+const card =
+document.createElement("div");
+
+card.className =
+"card";
+
+card.innerHTML = `
+<h3>New Feature</h3>
+<p>This feature was added with Veyra.</p>
+`;
+
+cards.appendChild(card);
+
+}
+
+
+/* AI EDIT */
+
+function aiEdit() {
+
+const input =
+document
+.getElementById("aiInput");
+
+const command =
+input.value
+.trim()
+.toLowerCase();
+
+if (!command) return;
+
+
+/* NAVBAR */
+
+if (
+command.includes("navbar") &&
+command.includes("small")
+) {
+
+document
+.querySelector(".site-nav")
+.style
+.height = "50px";
+
+}
+
+
+/* HERO */
+
+if (
+command.includes("hero") &&
+command.includes("bigger")
+) {
+
+document
+.querySelector(".hero")
+.style
+.padding = "130px 25px";
+
+}
+
+
+/* ROUND */
+
+if (
+command.includes("rounded")
+) {
+
+document
+.querySelector(".website")
+.style
+.borderRadius = "25px";
+
+}
+
+
+/* DARK */
+
+if (
+command.includes("dark")
+) {
+
+document
+.querySelector(".website")
+.style
+.background = "#111";
+
+}
+
+
+/* ADD PRICING */
+
+if (
+command.includes("pricing")
+) {
+
+const section =
+document.createElement("section");
+
+section.style.padding =
+"50px 25px";
+
+section.innerHTML = `
+<h2 style="text-align:center">
+Pricing
+</h2>
+
+<div style="
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+margin-top:25px;
+">
+
+<div class="card">
+<h3>Free</h3>
+<p>$0</p>
+</div>
+
+<div class="card">
+<h3>Pro</h3>
+<p>$30/month</p>
+</div>
+
+<div class="card">
+<h3>Pro+</h3>
+<p>$60/year</p>
+</div>
+
+</div>
+`;
+
+document
+.getElementById("website")
+.insertBefore(
+section,
+document.querySelector(".footer")
+);
+
+}
+
+
+input.value = "";
+
+}
+
+
+/* DEVICE */
+
+function setDevice(device) {
+
+const website =
+document.getElementById("website");
+
+if (device === "desktop") {
+
+website.style.maxWidth =
+"1100px";
+
+}
+
+if (device === "tablet") {
+
+website.style.maxWidth =
+"700px";
+
+}
+
+if (device === "mobile") {
+
+website.style.maxWidth =
+"390px";
+
+}
+
+}
+
+
+/* SAVE */
+
+function saveProject() {
+
+localStorage.setItem(
+"veyraProject",
+document.getElementById("website").innerHTML
+);
+
+alert("Project saved!");
+
+}
+
+
+/* UNDO */
+
+function undo() {
+
+document.execCommand("undo");
+
+}
+
+
+/* REDO */
+
+function redo() {
+
+document.execCommand("redo");
+
+}
+
+
+/* BACK */
+
+function backHome() {
+
+document
+.getElementById("builder")
+.style
+.display = "none";
+
+document
+.getElementById("home")
+.style
+.display = "flex";
+
+}
+
+
+/* EXPORT */
+
+function exportWebsite() {
+
+const html =
+document
+.getElementById("website")
+.innerHTML;
+
+const blob =
+new Blob(
+[html],
+{type:"text/html"}
+);
+
+const url =
+URL.createObjectURL(blob);
+
+const link =
+document.createElement("a");
+
+link.href = url;
+
+link.download =
+"veyra-website.html";
+
+link.click();
+
+URL.revokeObjectURL(url);
+
+}
+
+</script>
+
+</body>
+    </html>
