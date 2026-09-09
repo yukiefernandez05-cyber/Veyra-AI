@@ -3,76 +3,292 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Veyra AI</title>
 
 <style>
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
+html,
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #ffffff;
-  color: #111111;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111111;
 }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
+button,
+textarea {
+    font-family: inherit;
 }
 
-/* TOP BAR */
+/* =========================
+   TOP BAR
+========================= */
 
 .topbar {
-  height: 60px;
-  display: flex;
-  align-items: center;
-  padding: 0 18px;
-  border-bottom: 1px solid #eeeeee;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    padding: 0 18px;
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    z-index: 100;
 }
 
-.menuButton {
-  border: 0;
-  background: transparent;
-  font-size: 25px;
+.menu-button {
+    width: 42px;
+    height: 42px;
+    border: 0;
+    background: transparent;
+    border-radius: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.menu-button:hover {
+    background: #f2f2f2;
 }
 
 .logo {
-  margin-left: 14px;
-  font-size: 20px;
-  font-weight: 700;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 700;
 }
 
-/* HOME */
+/* =========================
+   HOME
+========================= */
 
 .home {
-  min-height: calc(100vh - 60px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 25px;
+    min-height: 100vh;
+    padding: 62px 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.homeBox {
-  width: 100%;
-  max-width: 720px;
-  text-align: center;
+.home-content {
+    width: 100%;
+    max-width: 760px;
+    text-align: center;
 }
 
-.homeBox h1 {
-  font-size: 42px;
-  margin: 0 0 12px;
+.home-title {
+    margin: 0;
+    font-size: 44px;
+    line-height: 1.1;
 }
 
-.subtitle {
-  color: #666;
-  margin-bottom: 25px;
-  font-size: 17px;
+.home-description {
+    margin: 16px 0 28px;
+    color: #6b6b6b;
+    font-size: 17px;
 }
 
-.prompt {
-  width: 100%;
-  min-height: 160px;
-  resize: vertical;
- 
+.prompt-box {
+    width: 100%;
+    min-height: 170px;
+    padding: 20px;
+    border: 1px solid #dddddd;
+    border-radius: 17px;
+    background: #ffffff;
+    color: #111111;
+    font-size: 16px;
+    resize: vertical;
+    outline: none;
+}
+
+.prompt-box:focus {
+    border-color: #999999;
+    box-shadow: 0 0 0 3px #f1f1f1;
+}
+
+.actions {
+    margin-top: 13px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.example-button,
+.create-button {
+    padding: 11px 18px;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.example-button {
+    background: #ffffff;
+    border: 1px solid #dddddd;
+}
+
+.create-button {
+    background: #111111;
+    color: #ffffff;
+    border: 1px solid #111111;
+    font-weight: 700;
+}
+
+/* =========================
+   SIDE MENU
+========================= */
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    padding: 22px;
+    background: #ffffff;
+    box-shadow: 5px 0 25px rgba(0,0,0,0.15);
+    z-index: 1000;
+    transition: left 0.25s ease;
+}
+
+.side-menu.open {
+    left: 0;
+}
+
+.close-menu {
+    float: right;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    background: transparent;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.side-menu-title {
+    margin: 5px 0 25px;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.menu-item {
+    padding: 14px 10px;
+    margin-bottom: 4px;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background: #f3f3f3;
+}
+
+/* =========================
+   BUILDER
+========================= */
+
+.builder {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    padding-top: 62px;
+}
+
+.builder-toolbar {
+    position: fixed;
+    top: 62px;
+    left: 0;
+    right: 0;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 14px;
+    background: #ffffff;
+    border-bottom: 1px solid #dddddd;
+    z-index: 50;
+}
+
+.builder-name {
+    flex: 1;
+    font-weight: 700;
+}
+
+.builder-button {
+    padding: 8px 13px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.builder-button:hover {
+    background: #f3f3f3;
+}
+
+.preview-area {
+    width: 100%;
+    height: calc(100vh - 117px);
+    margin-top: 55px;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    background: #eeeeee;
+}
+
+.website-preview {
+    width: 100%;
+    max-width: 1100px;
+    height: 100%;
+    overflow: auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+}
+
+/* =========================
+   GENERATED WEBSITE
+========================= */
+
+.site-nav {
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.site-logo {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.site-nav-button {
+    padding: 9px 15px;
+    border: 0;
+    border-radius: 8px;
+    background: #111111;
+    color: #ffffff;
+}
+
+.site-hero {
+    padding: 90px 25px;
+    text-align: center;
+    background: linear-gradient(135deg, #111111, #444444);
+    color: #ffffff;
+}
+
+.site-hero h1 {
+    margin: 0 0 15px;
+    font-size: 46px;
+}
+
+.site-hero p {
+    max-width: 650px;
+    margin
