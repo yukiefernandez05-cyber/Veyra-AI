@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Veyra AI</title>
 
 <style>
-
 * {
     box-sizing: border-box;
 }
@@ -19,15 +17,7 @@ body {
     color: #111;
 }
 
-button,
-input,
-textarea {
-    font-family: inherit;
-}
-
-/* =========================
-   TOP BAR
-========================= */
+/* TOP BAR */
 
 .topbar {
     position: fixed;
@@ -52,132 +42,10 @@ textarea {
 
 .logo {
     margin-left: 12px;
-    font-weight: bold;
     font-size: 20px;
+    font-weight: bold;
 }
 
-/* =========================
-   HOME
-========================= */
+/* HOME */
 
 .home {
-    min-height: 100vh;
-    padding: 60px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.home-content {
-    width: 100%;
-    max-width: 750px;
-    text-align: center;
-}
-
-.home-title {
-    font-size: 43px;
-    margin-bottom: 12px;
-}
-
-.home-description {
-    color: #666;
-    margin-bottom: 25px;
-}
-
-.prompt {
-    width: 100%;
-    min-height: 160px;
-    padding: 18px;
-    border: 1px solid #ddd;
-    border-radius: 15px;
-    resize: vertical;
-    outline: none;
-    font-size: 16px;
-}
-
-.prompt:focus {
-    border-color: #999;
-}
-
-.actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 12px;
-}
-
-.example,
-.create {
-    padding: 11px 18px;
-    border-radius: 9px;
-    cursor: pointer;
-}
-
-.example {
-    background: white;
-    border: 1px solid #ddd;
-}
-
-.create {
-    background: #111;
-    color: white;
-    border: 0;
-    font-weight: bold;
-}
-
-/* =========================
-   SIDE MENU
-========================= */
-
-.side-menu {
-    position: fixed;
-    left: -290px;
-    top: 0;
-    width: 290px;
-    height: 100vh;
-    background: white;
-    padding: 20px;
-    z-index: 2000;
-    box-shadow: 5px 0 25px #0002;
-    transition: .25s;
-}
-
-.side-menu.open {
-    left: 0;
-}
-
-.close-menu {
-    float: right;
-    border: 0;
-    background: transparent;
-    font-size: 25px;
-    cursor: pointer;
-}
-
-.menu-title {
-    font-size: 21px;
-    font-weight: bold;
-    margin-bottom: 25px;
-}
-
-.menu-item {
-    padding: 14px;
-    border-radius: 9px;
-    cursor: pointer;
-}
-
-.menu-item:hover {
-    background: #f2f2f2;
-}
-
-/* =========================
-   BUILDER
-========================= */
-
-.builder {
-    display: none;
-    padding-top: 60px;
-    height: 100vh;
-}
-
-.builder
