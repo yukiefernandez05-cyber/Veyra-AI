@@ -52,547 +52,132 @@ textarea {
 
 .logo {
     margin-left: 12px;
-   .MPLE */
-
-function examplePrompt() {
-
-document
-.getElementById("prompt")
-.value =
-"Create a modern gaming website for my Roblox game with a hero section, game information, features, and a Play Now button.";
-
+    font-weight: bold;
+    font-size: 20px;
 }
 
+/* =========================
+   HOME
+========================= */
 
-/* CREATE */
-
-function createWebsite() {
-
-const prompt =
-document
-.getElementById("prompt")
-.value
-.trim();
-
-if (!prompt) {
-
-alert("Describe your website first.");
-
-return;
-
+.home {
+    min-height: 100vh;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-document
-.getElementById("home")
-.style
-.display = "none";
-
-document
-.getElementById("builder")
-.style
-.display = "block";
-
-generateWebsite(prompt);
-
+.home-content {
+    width: 100%;
+    max-width: 750px;
+    text-align: center;
 }
 
-
-/* GENERATE */
-
-function generateWebsite(prompt) {
-
-const text =
-prompt.toLowerCase();
-
-const title =
-document.getElementById("heroTitle");
-
-const description =
-document.getElementById("heroText");
-
-
-if (
-text.includes("roblox") ||
-text.includes("gaming") ||
-text.includes("game")
-) {
-
-title.textContent =
-"Welcome to Our Game";
-
-description.textContent =
-"Enter a new world and experience an amazing adventure.";
-
+.home-title {
+    font-size: 43px;
+    margin-bottom: 12px;
 }
 
-else if (
-text.includes("business")
-) {
-
-title.textContent =
-"Grow Your Business";
-
-description.textContent =
-"Professional solutions for your business.";
-
+.home-description {
+    color: #666;
+    margin-bottom: 25px;
 }
 
-else if (
-text.includes("portfolio")
-) {
-
-title.textContent =
-"My Creative Portfolio";
-
-description.textContent =
-"Explore my work and projects.";
-
+.prompt {
+    width: 100%;
+    min-height: 160px;
+    padding: 18px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    resize: vertical;
+    outline: none;
+    font-size: 16px;
 }
 
-else if (
-text.includes("store") ||
-text.includes("shop")
-) {
-
-title.textContent =
-"Welcome to Our Store";
-
-description.textContent =
-"Discover our latest products.";
-
+.prompt:focus {
+    border-color: #999;
 }
 
-else {
-
-title.textContent =
-"Your New Website";
-
-description.textContent =
-"A beautiful website created with Veyra AI.";
-
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 12px;
 }
 
+.example,
+.create {
+    padding: 11px 18px;
+    border-radius: 9px;
+    cursor: pointer;
 }
 
-
-/* SELECT ELEMENT */
-
-let selectedElement = null;
-
-function selectElement(id) {
-
-selectedElement =
-document.getElementById(id);
-
-if (!selectedElement) return;
-
-document
-.getElementById("textProperty")
-.value =
-selectedElement.textContent;
-
+.example {
+    background: white;
+    border: 1px solid #ddd;
 }
 
-
-/* APPLY PROPERTIES */
-
-function applyProperties() {
-
-if (!selectedElement) {
-
-alert("Select an element first.");
-
-return;
-
+.create {
+    background: #111;
+    color: white;
+    border: 0;
+    font-weight: bold;
 }
 
-const text =
-document
-.getElementById("textProperty")
-.value;
+/* =========================
+   SIDE MENU
+========================= */
 
-const background =
-document
-.getElementById("backgroundProperty")
-.value;
-
-if (text) {
-
-selectedElement.textContent =
-text;
-
+.side-menu {
+    position: fixed;
+    left: -290px;
+    top: 0;
+    width: 290px;
+    height: 100vh;
+    background: white;
+    padding: 20px;
+    z-index: 2000;
+    box-shadow: 5px 0 25px #0002;
+    transition: .25s;
 }
 
-selectedElement.style.background =
-background;
-
+.side-menu.open {
+    left: 0;
 }
 
-
-/* ADD CARD */
-
-function addCard() {
-
-const cards =
-document.getElementById("cards");
-
-const card =
-document.createElement("div");
-
-card.className =
-"card";
-
-card.innerHTML = `
-<h3>New Feature</h3>
-<p>This feature was added with Veyra.</p>
-`;
-
-cards.appendChild(card);
-
+.close-menu {
+    float: right;
+    border: 0;
+    background: transparent;
+    font-size: 25px;
+    cursor: pointer;
 }
 
-
-/* AI EDIT */
-
-function aiEdit() {
-
-const input =
-document
-.getElementById("aiInput");
-
-const command =
-input.value
-.trim()
-.toLowerCase();
-
-if (!command) return;
-
-
-/* NAVBAR */
-
-if (
-command.includes("navbar") &&
-command.includes("small")
-) {
-
-document
-.querySelector(".site-nav")
-.style
-.height = "50px";
-
+.menu-title {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 25px;
 }
 
-
-/* HERO */
-
-if (
-command.includes("hero") &&
-command.includes("bigger")
-) {
-
-document
-.querySelector(".hero")
-.style
-.padding = "130px 25px";
-
+.menu-item {
+    padding: 14px;
+    border-radius: 9px;
+    cursor: pointer;
 }
 
-
-/* ROUND */
-
-if (
-command.includes("rounded")
-) {
-
-document
-.querySelector(".website")
-.style
-.borderRadius = "25px";
-
+.menu-item:hover {
+    background: #f2f2f2;
 }
 
+/* =========================
+   BUILDER
+========================= */
 
-/* DARK */
-
-if (
-command.includes("dark")
-) {
-
-document
-.querySelector(".website")
-.style
-.background = "#111";
-
+.builder {
+    display: none;
+    padding-top: 60px;
+    height: 100vh;
 }
 
-
-/* ADD PRICING */
-
-if (
-command.includes("pricing")
-) {
-
-const section =
-document.createElement("section");
-
-section.style.padding =
-"50px 25px";
-
-section.innerHTML = `
-<h2 style="text-align:center">
-Pricing
-</h2>
-
-<div style="
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-margin-top:25px;
-">
-
-<div class="card">
-<h3>Free</h3>
-<p>$0</p>
-</div>
-
-<div class="card">
-<h3>Pro</h3>
-<p>$30/month</p>
-</div>
-
-<div class="card">
-<h3>Pro+</h3>
-<p>$60/year</p>
-</div>
-
-</div>
-`;
-
-document
-.getElementById("website")
-.insertBefore(
-section,
-document.querySelector(".footer")
-);
-
-}
-
-
-input.value = "";
-
-}
-
-
-/* DEVICE */
-
-function setDevice(device) {
-
-const website =
-document.getElementById("website");
-
-if (device === "desktop") {
-
-website.style.maxWidth =
-"1100px";
-
-}
-
-if (device === "tablet") {
-
-website.style.maxWidth =
-"700px";
-
-}
-
-if (device === "mobile") {
-
-website.style.maxWidth =
-"390px";
-
-}
-
-}
-
-
-/* SAVE */
-
-function saveProject() {
-
-localStorage.setItem(
-"veyraProject",
-document.getElementById("website").innerHTML
-);
-
-alert("Project saved!");
-
-}
-
-
-/* UNDO */
-
-function undo() {
-
-document.execCommand("undo");
-
-}
-
-
-/* REDO */
-
-function redo() {
-
-document.execCommand("redo");
-
-}
-
-
-/* BACK */
-
-function backHome() {
-
-document
-.getElementById("builder")
-.style
-.display = "none";
-
-document
-.getElementById("home")
-.style
-.display = "flex";
-
-}
-
-
-/* EXPORT */
-
-function exportWebsite() {
-
-const html =
-document
-.getElementById("website")
-.innerHTML;
-
-const blob =
-new Blob(
-[html],
-{type:"text/html"}
-);
-
-const url =
-URL.createObjectURL(blob);
-
-const link =
-document.createElement("a");
-
-link.href = url;
-
-link.download =
-"veyra-website.html";
-
-link.click();
-
-URL.revokeObjectURL(url);
-
-}
-
-</script>
-
-</body>
-    </html>
-/* MENU ACTIONS */
-
-function newProject() {
-
-    closeMenu();
-
-    document.getElementById("builder").style.display = "none";
-    document.getElementById("home").style.display = "flex";
-
-    document.getElementById("prompt").value = "";
-
-}
-
-
-function myProjects() {
-
-    const saved =
-        localStorage.getItem("veyraProject");
-
-    if (saved) {
-
-        alert("You have a saved Veyra project!");
-
-    } else {
-
-        alert("No saved projects yet.");
-
-    }
-
-    closeMenu();
-
-}
-
-
-function showTemplates() {
-
-    alert(
-        "Templates coming soon!\n\n" +
-        "• Gaming\n" +
-        "• Business\n" +
-        "• Portfolio\n" +
-        "• Store\n" +
-        "• Blog"
-    );
-
-    closeMenu();
-
-}
-
-
-function showComponents() {
-
-    alert(
-        "Components coming soon!\n\n" +
-        "• Navbar\n" +
-        "• Hero\n" +
-        "• Cards\n" +
-        "• Buttons\n" +
-        "• Pricing"
-    );
-
-    closeMenu();
-
-}
-
-
-function showPricing() {
-
-    alert(
-        "Veyra AI Pricing\n\n" +
-        "FREE — $0\n" +
-        "PRO — $30/month\n" +
-        "PRO+ — $60/year\n" +
-        "OWNER — Unlimited"
-    );
-
-    closeMenu();
-
-}
-
-
-function showAccount() {
-
-    alert("Account system coming soon.");
-
-    closeMenu();
-
-}
-
-
-function showSettings() {
-
-    alert("Settings coming soon.");
-
-    closeMenu();
-
-}
+.builder
